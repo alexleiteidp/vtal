@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <title>Painel de Reclamações V.tal | Ayres Britto</title>
+  <meta name="description" content="Acompanhamento das reclamações constitucionais da V.tal no Supremo Tribunal Federal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300;6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="pular" href="#processos">Ir para a lista de processos</a>
+
+  <header class="topo wrap">
+    <img class="logo" src="assets/logo-ayres-britto.png" alt="Ayres Britto Consultoria Jurídica e Advocacia" width="1024" height="359">
+    <p class="topo__titulo">Reclamações constitucionais da V.tal no STF</p>
+    <button class="atalho" type="button" id="abrir-paleta">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+      Buscar processo <kbd>Ctrl K</kbd>
+    </button>
+  </header>
+
+  <main>
+    <section class="wrap panorama" aria-labelledby="h-panorama">
+      <div class="panorama__texto">
+        <h1 id="h-panorama"><span id="n-favor">0</span> <span id="frase"></span></h1>
+        <p class="tese" id="tese"></p>
+      </div>
+      <aside class="hoje" aria-label="Situação de hoje" id="hoje"></aside>
+      <div class="tira" id="tira" role="group" aria-label="Todas as reclamações, uma barra por processo"></div>
+      <div class="placar" id="placar"></div>
+    </section>
+
+    <section class="wrap atencao" aria-label="Pontos de atenção">
+      <div class="coluna coluna--prazos" id="prazos-sec">
+        <header class="cab">
+          <h2>Prazos</h2>
+          <p id="prazos-nota"></p>
+        </header>
+        <ol class="prazos" id="prazos"></ol>
+        <details class="metodo">
+          <summary>Como o prazo é calculado</summary>
+          <p id="metodo"></p>
+        </details>
+      </div>
+      <div class="coluna">
+        <header class="cab"><h2>Decisões negativas e sem julgamento</h2></header>
+        <ol class="alertas" id="alertas"></ol>
+        <header class="cab cab--2"><h2>Movimentações recentes</h2></header>
+        <ol class="feed" id="feed"></ol>
+      </div>
+    </section>
+
+    <section id="processos" aria-labelledby="h-processos">
+      <div class="barra" id="barra">
+        <div class="wrap barra__in">
+          <div class="barra__linha">
+            <h2 id="h-processos">Processos</h2>
+            <p class="contagem" id="contagem" aria-live="polite"></p>
+            <div class="seg" role="group" aria-label="Agrupar por" id="grupos"></div>
+            <div class="seg" role="group" aria-label="Forma de visualização" id="visoes"></div>
+          </div>
+          <div class="barra__linha barra__linha--filtros">
+            <label class="campo">
+              <span class="sr">Filtrar processos</span>
+              <input id="busca" type="search" placeholder="Número, parte ou origem" autocomplete="off">
+            </label>
+            <div class="facetas" id="facetas"></div>
+            <label class="relator">
+              <span class="sr">Filtrar por relator</span>
+              <select id="relator"></select>
+            </label>
+            <button class="limpar" id="limpar" type="button" hidden>Limpar filtros</button>
+          </div>
+        </div>
+      </div>
+      <div class="wrap" id="vista"></div>
+    </section>
+  </main>
+
+  <footer class="rodape wrap">
+    <p id="fonte"></p>
+    <p>Painel informativo. As informações oficiais são as constantes dos autos e do portal do Supremo Tribunal Federal. Ayres Britto Consultoria Jurídica e Advocacia.</p>
+  </footer>
+
+  <dialog class="ficha" id="ficha" aria-labelledby="f-titulo"></dialog>
+  <dialog class="paleta" id="paleta" aria-label="Buscar processo">
+    <input id="paleta-busca" type="text" placeholder="Digite o número, a parte, o relator ou a origem" autocomplete="off" aria-label="Buscar processo">
+    <ul id="paleta-lista" role="listbox" aria-label="Resultados"></ul>
+    <p class="paleta__dica"><kbd>↑</kbd><kbd>↓</kbd> navegar <kbd>Enter</kbd> abrir <kbd>Esc</kbd> fechar</p>
+  </dialog>
+  <div class="dica" id="dica" role="tooltip" hidden></div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
