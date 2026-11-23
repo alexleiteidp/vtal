@@ -74,8 +74,11 @@ function panorama() {
   const P = D.processos, n = (f) => P.filter(f).length;
   const julgados = n((p) => p.resultado !== "pendente");
   const favoraveis = n((p) => p.resultado === "procedente" || p.resultado === "parcial");
-  contar($("#n-favor"), favoraveis);
-  $("#frase").textContent = `de ${julgados} reclamações julgadas foram favoráveis à V.tal`;
+  const pendentes = P.length - julgados;
+  contar($("#n-favor"), P.length);
+  $("#frase").textContent = "reclamações da V.tal acompanhadas no STF";
+  $("#resumo").textContent = `${favoraveis} de ${julgados} já julgadas foram favoráveis à V.tal` +
+    (pendentes ? `; ${pendentes} ${pendentes === 1 ? "aguarda" : "aguardam"} julgamento.` : ".");
   $("#tese").textContent = D.tese;
 
   const correndo = D.prazos.filter(({ e }) => !e.vencido);

@@ -67,7 +67,8 @@ kbd { font: 500 11px var(--mono); color: var(--tinta-3); border: 1px solid var(-
 .panorama { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: clamp(28px, 4vw, 40px) clamp(32px, 6vw, 96px); padding-block: clamp(32px, 6vw, 72px) 0; align-items: end; }
 h1 { font: 300 clamp(40px, 6.2vw, 84px)/1.03 var(--serifa); letter-spacing: -.022em; text-wrap: balance; font-variation-settings: "opsz" 72; }
 #n-favor { color: var(--marca); }
-.tese { margin-top: 22px; max-width: 70ch; color: var(--tinta-2); font-size: 16px; }
+.resumo { margin-top: 18px; font: 400 clamp(19px, 2vw, 24px)/1.35 var(--serifa); color: var(--tinta); }
+.tese { margin-top: 14px; max-width: 70ch; color: var(--tinta-2); font-size: 16px; }
 .hoje__data { font-size: 14px; color: var(--tinta-3); padding-bottom: 10px; border-bottom: 1px solid var(--tinta); }
 .hoje dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--fio); font-size: 14px; }
 .hoje dt { color: var(--tinta-2); }
